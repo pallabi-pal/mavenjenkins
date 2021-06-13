@@ -31,9 +31,11 @@ public class UITest
 			driver=new EdgeDriver();	
 		}
 		
+		
 		driver.manage().window().maximize();
 		driver.get("https://opensource-demo.orangehrmlive.com/");
 		Assert.assertTrue(driver.getTitle().contains("Orange"), "Title does not match");
+		System.out.println("Yayy");
 		driver.quit();
 	}
 	
