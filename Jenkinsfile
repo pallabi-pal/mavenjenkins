@@ -1,41 +1,33 @@
-pipeline 
-{
+pipeline {
     agent any
 
-    stages 
-    {
-        stage('Build') 
-        {
-            steps 
-            {
-                echo 'Build App'
+    stages {
+        
+        stage('Build') {
+            
+            steps {
+                echo 'Building Application'
             }
         }
-
-        stage('Test') 
-        {
-            steps 
-            {
-                echo 'Test App'
+        stage('Test') {
+            
+            steps {
+                echo 'Testing Application'
             }
         }
-
-        stage('Deploy') 
-        {
-            steps 
-            {
-                echo 'Deploy App'
+        stage('Deploy') {
+            
+            steps {
+                echo 'Deploying Application'
             }
         }
     }
-
     post
     {
+       always{
+           
+           emailext body: 'My pipeline works!! YAayyy ME! :D', subject: 'Test email for Pipeline status', to: 'learningtestemail@gmail.com'
+       }
+   }
 
-    	always
-    	{
-    		emailext body: 'Summary', subject: 'Pipeline Status', to: 'selenium3bymukesh@gmail.com'
-    	}
-
-    }
 }
